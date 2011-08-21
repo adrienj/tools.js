@@ -2,6 +2,7 @@ I've made and modified some JS libraries. Everything under 1KB
 
 # DomFW.js (0.3KB)
 Simple selector and Element editing.
+Example : http://jsfiddle.net/JkVmX/
 
 ### Usage
     var myDiv = $('div')[3]; // return the forth DIV
@@ -9,12 +10,16 @@ Simple selector and Element editing.
     // Applies to all Divs
     $('div', {
         onclick: function(event) {
-            this.style.background = 'red';
-            console.log('Clicked!');
+            var elem = this;
+            elem.style.background = 'red';
+            setTimeout(function() {
+                elem.style.background = 'green';
+            }, 500);
         },
         style: {
             cursor: 'pointer',
-            borderRadius: 10
+            borderRadius: '10px'
+                
         },
         innerHTML: 'Text replaced.'
     }); 
